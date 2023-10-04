@@ -52,25 +52,25 @@ while task_n != 3:
                     for i in range(20):
                         if rand_list[i] < 0:
                             neg_sum = neg_sum + rand_list[i]
-                    print(f"1. Sum of negative numbers is {neg_sum}")
-
-                    even_sum = 0
-                    for i in range(20):
-                        if rand_list[i] % 2 != 0:
-                            even_sum = even_sum + rand_list[i]
-                    print(f"2. Sum of even numbers is {even_sum}")
+                    print(f"\t1. Sum of negative numbers is {neg_sum}")
 
                     odd_sum = 0
                     for i in range(20):
-                        if rand_list[i] % 2 == 0:
+                        if rand_list[i] % 2 != 0:
                             odd_sum = odd_sum + rand_list[i]
-                    print(f"3. Sum of odd numbers is {odd_sum}")
+                    print(f"\t2. Sum of even numbers is {odd_sum}")
+
+                    even_sum = 0
+                    for i in range(20):
+                        if rand_list[i] % 2 == 0:
+                            even_sum = even_sum + rand_list[i]
+                    print(f"\t3. Sum of odd numbers is {even_sum}")
 
                     mul_3 = 0
                     mul_3_list = rand_list[::3]
                     for i in range(len(mul_3_list)):
                         mul_3 = mul_3 * mul_3_list[i]
-                    print(f"4. Mul of numbers with indexes % 3 is {mul_3}")
+                    print(f"\t4. Mul of numbers with indexes % 3 is {mul_3}")
 
                     mul_5 = 1
                     min_v_i = rand_list.index(min(rand_list))
@@ -79,7 +79,7 @@ while task_n != 3:
                         min_v_i, max_v_i = max_v_i, min_v_i
                     for i in range(min_v_i+1,max_v_i):
                         mul_5 = mul_5 * rand_list[i]
-                    print(f"5. Mul of numbers btw min({min(rand_list)}) and max({max(rand_list)}) characters {mul_5}")
+                    print(f"\t5. Mul of numbers btw min({min(rand_list)}) and max({max(rand_list)}) characters {mul_5}")
 
                     sum_6 = 0
                     for i in range(20):
@@ -93,7 +93,7 @@ while task_n != 3:
                             break
                     for i in range(first_p_i+1,len(rand_list)-last_p_i-2):
                         sum_6 = sum_6 + rand_list[i]
-                    print(f"5. Sum of numbers btw first pos({rand_list[first_p_i]}) and last pos({rand_list[len(rand_list)-last_p_i-1]}) characters {sum_6}")
+                    print(f"\t6. Sum of numbers btw first pos({rand_list[first_p_i]}) and last pos({rand_list[len(rand_list)-last_p_i-1]}) characters {sum_6}")
 
                     while finish_t1_l != "y" or finish_t1_l != "n":
                         finish_t1 = input("Do you want to continue?\n"
@@ -112,7 +112,36 @@ while task_n != 3:
             case 2:
                 finish_t2_l = "y"
                 while finish_t2_l == "y":
-                    print("2")
+
+                    rand_list_t2 = []
+                    for i in range(20):
+                        rand_list_t2.append(random.randint(-10, 10))
+                    print(f"\t{rand_list_t2}")
+
+                    range_even = []
+                    for i in range(len(rand_list_t2)):
+                        if (rand_list_t2[i] % 2) == 0:
+                            range_even.append(rand_list_t2[i])
+                    print(f"\t{range_even}")
+
+                    range_odd = []
+                    for i in range(len(rand_list_t2)):
+                        if (rand_list_t2[i] % 2) != 0:
+                            range_odd.append(rand_list_t2[i])
+                    print(f"\t{range_odd}")
+
+                    range_pos = []
+                    for i in range(len(rand_list_t2)):
+                        if rand_list_t2[i] < 0:
+                            range_pos.append(rand_list_t2[i])
+                    print(f"\t{range_pos}")
+
+                    range_neg = []
+                    for i in range(len(rand_list_t2)):
+                        if rand_list_t2[i] > 0:
+                            range_neg.append(rand_list_t2[i])
+                    print(f"\t{range_neg}")
+
                     while finish_t2_l != "y" or finish_t2_l != "n":
                         finish_t2 = input("Do you want to continue?\n"
                                           "\ty - yes, n - no\n"
